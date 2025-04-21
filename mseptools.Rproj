@@ -1,0 +1,21 @@
+Version: 1.0
+ProjectId: fab5a043-066a-4290-8558-e02ce8067775
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 4
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+AutoAppendNewline: Yes
+StripTrailingWhitespace: Yes
+
+BuildType: Package
+PackageUseDevtools: Yes
+PackageInstallArgs: --no-multiarch --with-keep.source

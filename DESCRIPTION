@@ -1,0 +1,22 @@
+Package: mseptools
+Type: Package
+Title: Functions for the Mississippi Sound Estuary Program
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Kim", "Cressman",
+      email = "kc2741@msstate.edu",
+      role = c("aut", "cre")
+    )
+  )
+Description: Functions that will be useful to those working in the Mississippi Sound and its watershed.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Imports: 
+    dataRetrieval,
+    dplyr,
+    lubridate,
+    rlang,
+    stringr
