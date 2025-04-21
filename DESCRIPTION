@@ -20,3 +20,5 @@ Imports:
     lubridate,
     rlang,
     stringr
+URL: https://github.com/CMEP-MS/mseptools
+BugReports: https://github.com/CMEP-MS/mseptools/issues
