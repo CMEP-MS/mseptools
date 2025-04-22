@@ -17,7 +17,9 @@ RoxygenNote: 7.3.2
 Imports: 
     dataRetrieval,
     dplyr,
+    khroma,
     lubridate,
+    plotly,
     rlang,
     stringr
 URL: https://github.com/CMEP-MS/mseptools
