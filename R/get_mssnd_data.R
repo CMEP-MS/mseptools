@@ -85,8 +85,12 @@ get_mssnd_data <- function(stations = c("301001089442600",
                                        "X_00480",
                                        "Sal")
 
+    # clean station names in the siteInfo table
+    siteInfo <- attributes(dat)$siteInfo
+    siteInfo$clean_nm <- clean_station_names(siteInfo$station_nm)
+
     out <- list(data = dat,
-                siteInfo = attributes(dat)$siteInfo)
+                siteInfo = siteInfo)
 
     # get daily summaries, if using for salinity
     if(sum(stringr::str_detect(names(dat), "Sal")) >= 1){

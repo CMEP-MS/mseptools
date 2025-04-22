@@ -14,8 +14,8 @@ plot_mssnd_salinity(data, nrow = 2, colors = NULL)
 \item{nrow}{Integer. Number of rows in the subplot layout. Default is 2 (instantaneous data on top,
 daily means on bottom). Change to 1 if you prefer the graphs side-by-side.}
 
-\item{colors}{Character vector of color codes to use for different stations. If NULL (default),
-a color palette from the khroma package's "roma" scheme will be used.}
+\item{colors}{Character vector of color codes to use for different stations. Can be a named vector.
+If NULL (default), the khroma package's "roma" scheme will be used.}
 }
 \value{
 A plotly object with interactive time series plots of salinity data. The top plot shows

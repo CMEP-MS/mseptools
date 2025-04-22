@@ -12,8 +12,8 @@
 #'   (station metadata). This is typically the output from the \code{get_mssnd_data()} function.
 #' @param nrow Integer. Number of rows in the subplot layout. Default is 2 (instantaneous data on top,
 #'   daily means on bottom). Change to 1 if you prefer the graphs side-by-side.
-#' @param colors Character vector of color codes to use for different stations. If NULL (default),
-#'   a color palette from the khroma package's "roma" scheme will be used.
+#' @param colors Character vector of color codes to use for different stations. Can be a named vector.
+#'  If NULL (default), the khroma package's "roma" scheme will be used.
 #'
 #' @return A plotly object with interactive time series plots of salinity data. The top plot shows
 #'   instantaneous measurements, and the bottom plot shows daily means. Both plots share x and y axes.
@@ -58,7 +58,10 @@ plot_mssnd_salinity <- function(data,
     # it must have all three sections: data, daily, and stnInfo
 
     dat <- data
-    dat$siteInfo$station_nm <- clean_station_names(dat$siteInfo$station_nm)
+
+    if(!exists("clean_nm", dat$siteInfo)){
+        dat$siteInfo$clean_nm <- clean_station_names(dat$siteInfo$station_nm)
+    }
 
     to_plo <- dplyr::left_join(dat$data, dat$siteInfo,
                                by = "site_no")
@@ -75,9 +78,9 @@ plot_mssnd_salinity <- function(data,
                          mode = "lines",
                          x = ~dateTime,
                          y = ~Sal_Inst,
-                         color = ~station_nm,
+                         color = ~clean_nm,
                          colors = colors,
-                         legendgroup = ~station_nm,
+                         legendgroup = ~clean_nm,
                          showlegend = TRUE)
 
     p2 <- plotly::plot_ly(to_ploDaily,
@@ -85,25 +88,15 @@ plot_mssnd_salinity <- function(data,
                           mode = "lines",
                           x = ~date,
                           y = ~sal_mean,
-                          color = ~station_nm,
+                          color = ~clean_nm,
                           colors = colors,
-                          legendgroup = ~station_nm,
+                          legendgroup = ~clean_nm,
                           showlegend = FALSE)
 
     plotly::subplot(p, p2, nrows = nrow,
                     shareX = TRUE, shareY = TRUE,
                     margin = 0.03)|>
         plotly::layout(
-            # xaxis = list(
-            #     title = "Date",
-            #     rangeslider = list(type = "date",
-            #                        thickness = 0.05,
-            #                        title = list(
-            #                            text = "Adjust visible date range",
-            #                            font = list(size = 14))),
-            #     zerolinecolor = '#ffff',
-            #     zerolinewidth = 1
-            # ),
             xaxis = list(
                 title = list(
                     text = "Date<span style='font-size:smaller'> (adjust visible range with slider)</span>",
