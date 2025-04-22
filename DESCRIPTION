@@ -17,6 +17,7 @@ RoxygenNote: 7.3.2
 Imports: 
     dataRetrieval,
     dplyr,
+    forcats,
     khroma,
     leaflet,
     lubridate,

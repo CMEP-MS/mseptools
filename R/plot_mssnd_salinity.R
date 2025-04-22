@@ -72,7 +72,6 @@ plot_mssnd_salinity <- function(data,
         colors <- as.character(khroma::color("roma")(length(unique(to_plo$station_nm))))
     }
 
-
     p <- plotly::plot_ly(to_plo,
                          type = "scatter",
                          mode = "lines",

@@ -19,6 +19,9 @@
 #'
 #' @import leaflet
 #' @importFrom khroma color
+#' @importFrom dplyr mutate arrange
+#' @importFrom forcats fct_inorder
+#' @importFrom rlang .data
 #' @export
 #'
 #' @examples
@@ -42,10 +45,25 @@ map_mssnd_usgs <- function(stations,
 
     # generate color palette if it wasn't provided
     if(is.null(color_function)){
-        pal <- as.character(khroma::color("roma")(length(unique(stations$clean_nm))))
+        to_map <- dplyr::arrange(to_map, .data$clean_nm) |>
+            dplyr::mutate(clean_nm = forcats::fct_inorder(.data$clean_nm))
+        domain_vals <- levels(to_map$clean_nm)
+        pal <- as.character(khroma::color("roma")(length(domain_vals)))
         color_function <- leaflet::colorFactor(palette = pal,
-                                               domain = sort(unique(stations$clean_nm)))
+                                               domain = domain_vals)
+    } else {
+        # if it was provided, extract the domain values
+        # Try to extract domain from provided color function
+        if (!is.null(environment(color_function)$domain)) {
+            domain_vals <- environment(color_function)$domain
+        } else {
+            # Fallback: infer from data (but order may not be guaranteed)
+            domain_vals <- sort(unique(to_map$clean_nm))
+        }
+        # Ensure clean_nm is a factor with correct levels
+        to_map$clean_nm <- factor(to_map$clean_nm, levels = domain_vals)
     }
+
 
     m <- leaflet::leaflet(to_map) |>
         leaflet::addProviderTiles(provider = leaflet::providers$CartoDB.Positron,
@@ -63,8 +81,8 @@ map_mssnd_usgs <- function(stations,
                                   fillOpacity = 0.9,
                                   popup = ~paste0(station_nm, ", USGS-", site_no)) |>
         leaflet::addLegend(position = "bottomright",
-                           colors = color_function(sort(unique(to_map$clean_nm))),
-                           labels = sort(unique(to_map$clean_nm)),
+                           colors = color_function(domain_vals),
+                           labels = domain_vals,
                            opacity = 0.7)
     m
 
