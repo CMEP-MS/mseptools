@@ -29,6 +29,7 @@ instantaneous values in the top graph and daily means on the bottom. A range sli
 is on the bottom to allow viewing of a smaller portion of time.
 }
 \examples{
+plot_mssnd_salinity(mssnd_salinity2019)
 \dontrun{
 # Get Mississippi Sound data
 ms_data <- get_mssnd_data()

@@ -25,12 +25,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' data <- get_mssnd_data()
-#' stnInfo <- data$stnInfo
-#' map <- map_mssnd_usgs(stnInfo)
-#' map  # display in Viewer
-#' }
+#' map_mssnd_usgs(mssnd_salinity2019$siteInfo)
+
 
 map_mssnd_usgs <- function(stations,
                            color_function = NULL){

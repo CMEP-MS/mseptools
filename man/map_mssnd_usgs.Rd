@@ -29,10 +29,5 @@ If the `stations` data frame does not include a `clean_nm` column, one
   station names and USGS site numbers.
 }
 \examples{
-\dontrun{
-data <- get_mssnd_data()
-stnInfo <- data$stnInfo
-map <- map_mssnd_usgs(stnInfo)
-map  # display in Viewer
-}
+map_mssnd_usgs(mssnd_salinity2019$siteInfo)
 }

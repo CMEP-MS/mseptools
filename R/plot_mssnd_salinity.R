@@ -25,6 +25,7 @@
 #' @importFrom khroma color
 #'
 #' @examples
+#' plot_mssnd_salinity(mssnd_salinity2019)
 #' \dontrun{
 #' # Get Mississippi Sound data
 #' ms_data <- get_mssnd_data()
