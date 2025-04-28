@@ -120,7 +120,7 @@ plot_mssnd_salinity <- function(data,
                 list(
                     x = 0,
                     y = 1.0,
-                    text = "Instantaneous",
+                    text = "All Readings",
                     xref = "paper",
                     yref = "paper",
                     xanchor = "left",
