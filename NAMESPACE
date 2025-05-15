@@ -2,6 +2,7 @@
 
 export(clean_station_names)
 export(get_mssnd_data)
+export(map_mssnd_salinity)
 export(map_mssnd_usgs)
 export(plot_mssnd_salinity)
 import(leaflet)
