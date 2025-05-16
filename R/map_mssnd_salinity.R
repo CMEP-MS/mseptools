@@ -27,9 +27,9 @@
 #'
 #' @examples
 #' # Using the included mssnd_salinity example dataset
-# to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
-#     dplyr::filter(date == as.Date("2023-06-01"))
-# map_mssnd_salinity(to_map)
+#' to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
+#'     dplyr::filter(date == as.Date("2023-06-01"))
+#' map_mssnd_salinity(to_map)
 #'
 #' # Same example dataset, but a date where only 2 stations have a daily average
 #' to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
