@@ -4,7 +4,7 @@
 \alias{map_mssnd_salinity}
 \title{Create interactive salinity map for Mississippi Sound data}
 \usage{
-map_mssnd_salinity(data)
+map_mssnd_salinity(data, palette = "YlGnBu", domain = c(0, 40))
 }
 \arguments{
 \item{data}{A data frame containing salinity data for a single date,
@@ -18,6 +18,10 @@ output from the get_mssnd_data() function, then filtered to a single date.
     \item clean_nm: Station name
     \item site_no: USGS site number
   }}
+
+\item{palette}{Character string specifying the color palette name (default: "YlGnBu")}
+
+\item{domain}{Numeric vector of length 2 specifying the domain range (default: c(0, 40))}
 }
 \value{
 A leaflet map object centered on the Mississippi Sound area (approximately
@@ -25,8 +29,9 @@ A leaflet map object centered on the Mississippi Sound area (approximately
 }
 \description{
 Creates an interactive leaflet map displaying salinity data from USGS stations
-in the Mississippi Sound area. The function visualizes salinity measurements using
-color-coded markers, with popups showing the salinity value, station name, and ID.
+in the Mississippi Sound area. This is a convenience function that combines
+the create_mssnd_basemap, add_salinity_points, and add_salinity_legend functions
+in a single call.
 }
 \note{
 This function is currently specific to USGS station data format. The input

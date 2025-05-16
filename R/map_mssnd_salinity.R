@@ -2,8 +2,9 @@
 #'
 #' @description
 #' Creates an interactive leaflet map displaying salinity data from USGS stations
-#' in the Mississippi Sound area. The function visualizes salinity measurements using
-#' color-coded markers, with popups showing the salinity value, station name, and ID.
+#' in the Mississippi Sound area. This is a convenience function that combines
+#' the create_mssnd_basemap, add_salinity_points, and add_salinity_legend functions
+#' in a single call.
 #'
 #' @param data A data frame containing salinity data for a single date,
 #' generally created by joining the $daily and $siteInfo components of
@@ -16,6 +17,8 @@
 #'     \item clean_nm: Station name
 #'     \item site_no: USGS site number
 #'   }
+#' @param palette Character string specifying the color palette name (default: "YlGnBu")
+#' @param domain Numeric vector of length 2 specifying the domain range (default: c(0, 40))
 #'
 #' @return A leaflet map object centered on the Mississippi Sound area (approximately
 #'   30.25°N, 89.15°W) with station markers colored by salinity values.
@@ -39,36 +42,13 @@
 #' @export
 
 
-map_mssnd_salinity <- function(data){
-    # this function is specifically for data from USGS stations at this point
-    # it needs to be a data frame of a single date
+map_mssnd_salinity <- function(data, palette = "YlGnBu", domain = c(0, 40)) {
+    # Create a shared color function for consistency between points and legend
+    color_function <- leaflet::colorNumeric(palette = palette, domain = domain)
 
-    color_function <- leaflet::colorNumeric(palette = "YlGnBu",
-                                            domain = c(0, 40))
+    map <- create_mssnd_basemap() %>%
+        add_salinity_points(data, color_function = color_function) %>%
+        add_salinity_legend(color_function = color_function)
 
-    m <- leaflet::leaflet(data) |>
-        setView(-89.1500, 30.2500, zoom = 9) |>
-        leaflet::addProviderTiles(provider = leaflet::providers$CartoDB.Positron,
-                                  group = "Positron (CartoDB)") |>
-        leaflet::addProviderTiles(provider = leaflet::providers$Esri,
-                                  group = "Esri") |>
-        leaflet::addLayersControl(baseGroups = c("Positron (CartoDB)",
-                                                 "Esri")) |>
-        leaflet::addCircleMarkers(lng = ~dec_lon_va,
-                                  lat = ~dec_lat_va,
-                                  fillColor = ~color_function(sal_mean),
-                                  color = "black",
-                                  weight = 0.7,
-                                  radius = 11,
-                                  fillOpacity = 1,
-                                  popup = ~paste0(round(sal_mean, 1), " ppt<br>",
-                                                  clean_nm, "<br>USGS-",
-                                                  site_no)) |>
-        leaflet::addLegend(position = "bottomright",
-                           title = "Salinity<br>(ppt)",
-                           pal = color_function,
-                           values = c(0, 10, 20, 30, 40),
-                           bins = c(5, 15, 25, 35),
-                           opacity = 0.8)
-    m
+    return(map)
 }
