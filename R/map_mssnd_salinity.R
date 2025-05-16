@@ -27,9 +27,9 @@
 #'
 #' @examples
 #' # Using the included mssnd_salinity example dataset
-#' to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
-#'     dplyr::filter(date == as.Date("2023-06-01"))
-#' map_mssnd_salinity(to_map)
+# to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
+#     dplyr::filter(date == as.Date("2023-06-01"))
+# map_mssnd_salinity(to_map)
 #'
 #' # Same example dataset, but a date where only 2 stations have a daily average
 #' to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
@@ -65,6 +65,7 @@ map_mssnd_salinity <- function(data){
                                                   clean_nm, "<br>USGS-",
                                                   site_no)) |>
         leaflet::addLegend(position = "bottomright",
+                           title = "Salinity<br>(ppt)",
                            pal = color_function,
                            values = c(0, 10, 20, 30, 40),
                            bins = c(5, 15, 25, 35),
