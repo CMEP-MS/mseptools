@@ -22,6 +22,7 @@
 #' @importFrom dplyr mutate arrange
 #' @importFrom forcats fct_inorder
 #' @importFrom rlang .data
+#' @importFrom htmltools HTML
 #' @export
 #'
 #' @examples
@@ -75,7 +76,9 @@ map_mssnd_usgs <- function(stations,
                                   weight = 0.7,
                                   radius = 12,
                                   fillOpacity = 0.9,
-                                  popup = ~paste0(station_nm, ", USGS-", site_no)) |>
+                                  label = ~lapply(paste0(station_nm, ",<br>USGS-", site_no),
+                                                  htmltools::HTML)
+                                  ) |>
         leaflet::addLegend(position = "bottomright",
                            colors = color_function(domain_vals),
                            labels = domain_vals,
