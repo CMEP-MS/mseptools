@@ -18,6 +18,7 @@ Imports:
     dataRetrieval,
     dplyr,
     forcats,
+    htmltools,
     khroma,
     leaflet,
     lubridate,

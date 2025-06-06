@@ -22,6 +22,9 @@
 #' @return A leaflet map object with added circle markers
 #'
 #' @import leaflet
+#' @importFrom dplyr mutate
+#' @importFrom htmltools HTML
+#' @importFrom rlang .data
 #'
 #' @examples
 #'
@@ -60,9 +63,14 @@ add_salinity_points <- function(map, data, palette = "YlGnBu", domain = c(0, 40)
         color_function <- leaflet::colorNumeric(palette = palette, domain = domain)
     }
 
-    map %>%
+    mapdata <- data |>
+        dplyr::mutate(labels = paste0(round(.data$sal_mean, 1),
+                                      " ppt<br>", .data$clean_nm,
+                                      "<br>USGS-", .data$site_no))
+
+    map |>
         leaflet::addCircleMarkers(
-            data = data,
+            data = mapdata,
             lng = ~dec_lon_va,
             lat = ~dec_lat_va,
             fillColor = ~color_function(sal_mean),
@@ -70,7 +78,6 @@ add_salinity_points <- function(map, data, palette = "YlGnBu", domain = c(0, 40)
             weight = 0.7,
             radius = 11,
             fillOpacity = 1,
-            popup = ~paste0(round(sal_mean, 1), " ppt<br>", clean_nm,
-                            "<br>USGS-", site_no)
+            label = ~lapply(labels, htmltools::HTML)
         )
 }
