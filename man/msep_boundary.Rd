@@ -3,19 +3,23 @@
 \docType{data}
 \name{msep_boundary}
 \alias{msep_boundary}
-\title{Mississippi Sound Estuary Program Boundary}
+\title{Mississippi Sound Watershed Boundary}
 \format{
-## `msep_boundary`
-An `sf` object, using CRS NAD83 (EPSG:4269), with a single polygon representing
+## \code{msep_boundary}
+An \code{sf} object, using CRS NAD83 (EPSG:4269), with a single polygon representing
 the MSEP outline.
 }
 \usage{
 msep_boundary
 }
 \description{
-Outline of the MSEP boundary in the state of MS. Originally generated using
-files from Mississippi Department of Environmental Quality, cropped with
-the state boundary from the `\{rnaturalearth\}` package. Provided for
-assistance with visualization, not analytical use.
+Outline of the Mississippi Sound Watershed, which is the combination of
+HUC4s 0317 and 0318.
+}
+\details{
+NOT INTENDED FOR ANALYTICAL USE. The boundary has been simplified
+to reduce object size. For accurate boundaries, and other possible boundary
+configurations (e.g. only the portion of the watershed that is inside the
+state of MS), see the \code{msepBoundaries} package: \url{https://github.com/CMEP-MS/msepBoundaries}
 }
 \keyword{datasets}
