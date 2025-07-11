@@ -15,9 +15,6 @@ A list containing 3 data frames:
   ...
 }
 }
-\source{
-<https://www.who.int/teams/global-tuberculosis-programme/data>
-}
 \usage{
 mssnd_salinity
 }

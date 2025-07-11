@@ -16,5 +16,5 @@
 #'   \item{daily}{data frame of min, max, and mean salinity per day by station.}
 #'   ...
 #' }
-#' @source <https://www.who.int/teams/global-tuberculosis-programme/data>
+
 "mssnd_salinity2019"
