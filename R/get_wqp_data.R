@@ -36,10 +36,6 @@
 #' @returns A data frame containing WQP results for the requested area. Empty columns are removed.
 #'
 #' @details
-#' For county-based areas (\code{"3coastalCounties"} and
-#' \code{"6coastalCounties"}), the function queries each county separately
-#' and then combines the results.
-#'
 #' This function preserves Water Quality Portal (WQP) metadata stored as
 #' attributes on the returned data frame, even when empty columns are
 #' removed during post-processing. As a result, the output can be passed
@@ -92,73 +88,42 @@ get_wqp_data <- function(area = c("watershedComplete",
                          ...){
 
     area <- match.arg(area)
+
+    # generate county codes in the proper format
+    cty_codes_3 <- c("045", "047", "059")
+    cty_codes_6 <- c(cty_codes_3, "039", "109", "131")
+    cty_codes_3 <- paste0("US:28:", cty_codes_3)
+    cty_codes_6 <- paste0("US:28:", cty_codes_6)
+
     # Collect user-supplied extra arguments
     dots <- list(...)
 
-    if(area %in% c("3coastalCounties", "6coastalCounties")){
+    area_args <- switch(
+        area,
+        watershedComplete = list(huc = "0317;0318"),
+        basinCoastalStreams = list(huc = "03170009"),
+        "3coastalCounties" = list(countycode = cty_codes_3),
+        "6coastalCounties" = list(countycode = cty_codes_6)
+    )
 
-        cts <- switch(
-            area,
-            "3coastalCounties" = c("Jackson", "Harrison", "Hancock"),
-            "6coastalCounties" = c("Jackson", "Harrison", "Hancock",
-                                   "George", "Stone", "Pearl River")
-        )
-        # cts <- c("Jackson", "Harrison", "Hancock")
+    # Combine everything into one argument list
+    args <- c(
+        list(
+            sampleMedia = sampleMedia,
+            service = service,
+            dataProfile = dataProfile
+        ),
+        area_args,
+        dots
+    )
 
-        tmp_out <- list()
+    # Call the original function
+    tmp <- do.call(dataRetrieval::readWQPdata, args)
 
-        for(i in seq_along(cts)){
-            area_args <- list(statecode = "MS",
-                              countycode = cts[i])
-            args <- c(
-                list(
-                    sampleMedia = sampleMedia,
-                    service = service,
-                    dataProfile = dataProfile
-                ),
-                area_args,
-                dots
-            )
+    # remove empty columns
+    tmp2 <- janitor::remove_empty(tmp, "cols")
 
-            # Call the original function
-            tmp_outdf <- do.call(dataRetrieval::readWQPdata, args)
-            # remove empty columns
-            tmp_outdf <- janitor::remove_empty(tmp_outdf, "cols")
-            tmp_out[[i]] <- tmp_outdf
-
-        }
-
-        # bind together
-        tmp <- dplyr::bind_rows(tmp_out)
-
-
-    } else {
-        # do it the already outined way
-        area_args <- switch(
-            area,
-            watershedComplete = list(huc = "0317;0318"),
-            basinCoastalStreams = list(huc = "03170009")
-        )
-
-        # Combine everything into one argument list
-        args <- c(
-            list(
-                sampleMedia = sampleMedia,
-                service = service,
-                dataProfile = dataProfile
-            ),
-            area_args,
-            dots
-        )
-
-        # Call the original function
-        tmp <- do.call(dataRetrieval::readWQPdata, args)
-
-        # remove empty columns
-        tmp2 <- janitor::remove_empty(tmp, "cols")
-
-        tmp <- retain_wqp_attributes(tmp, tmp2)
-    }
+    tmp <- retain_wqp_attributes(tmp, tmp2)
 
     # return the data frame
     tmp

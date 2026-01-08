@@ -52,10 +52,6 @@ coastal-county groupings. The function handles multi-county queries
 internally and binds results into a single data frame.
 }
 \details{
-For county-based areas (\code{"3coastalCounties"} and
-\code{"6coastalCounties"}), the function queries each county separately
-and then combines the results.
-
 This function preserves Water Quality Portal (WQP) metadata stored as
 attributes on the returned data frame, even when empty columns are
 removed during post-processing. As a result, the output can be passed
