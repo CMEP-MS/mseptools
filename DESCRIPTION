@@ -20,6 +20,7 @@ Imports:
     dplyr,
     forcats,
     htmltools,
+    janitor,
     khroma,
     leaflet,
     lubridate,
