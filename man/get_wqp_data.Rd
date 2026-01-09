@@ -76,14 +76,6 @@ dat2 <- get_wqp_data(
   startDateLo = "2020-01-01",
   startDateHi = "2020-12-31"
 )
-
-# Retrieve Nutrient data for the six coastal counties in 2020
-dat3 <- get_wqp_data(
-    area = "6coastalCounties",
-    characteristicType = "Nutrient",
-    startDateLo = "2020-01-01",
-    startDateHi = "2020-12-31"
-)
 }
 }
 \seealso{
