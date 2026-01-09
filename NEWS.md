@@ -1,3 +1,9 @@
+# mseptools 0.2.1  
+
+### 1/9/2026  
+* modified multiple HUC selection inside `get_wqp_data()`. (after I learned how to bump versions and use git tags.)
+
+
 # mseptools 0.2.0  
 
 ### 1/9/2026  

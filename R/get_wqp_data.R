@@ -94,7 +94,7 @@ get_wqp_data <- function(area = c("watershedComplete",
 
     area_args <- switch(
         area,
-        watershedComplete = list(huc = "0317;0318"),
+        watershedComplete = list(huc = c("0317", "0318")),
         basinCoastalStreams = list(huc = "03170009"),
         "3coastalCounties" = list(countycode = cty_codes_3),
         "6coastalCounties" = list(countycode = cty_codes_6)
