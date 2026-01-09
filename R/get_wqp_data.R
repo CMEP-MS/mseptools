@@ -31,7 +31,9 @@
 #'   (anything you would put in 'Characteristic Group' in the WQP Advanced Query page to narrow down data types -
 #'   some desirable ones are \code{"Physical"}, \code{"Nutrients"}, \code{"Biological, Algae, Phytoplankton"},
 #'   \code{"Inorganic, Major, Metals"}, \code{"Inorganic, Minor, Metals"},
-#'   or \code{siteType}.
+#'   or \code{siteType}.  \strong{NOTE:} \code{characteristicType} \strong{DOES NOT WORK} with
+#'   complex areas like multiple HUCs or counties, even through the WQP site itself.
+#'   Inside this function, the \code{characteristicType} option only works with \code{area = "basinCoastalStreams"}.
 #'
 #' @returns A data frame containing WQP results for the requested area. Empty columns are removed.
 #'

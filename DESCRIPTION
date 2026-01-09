@@ -32,4 +32,6 @@ BugReports: https://github.com/CMEP-MS/mseptools/issues
 Depends: 
     R (>= 3.5)
 Suggests: 
-    sf
+    sf,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
