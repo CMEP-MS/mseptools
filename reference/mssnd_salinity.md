@@ -2,9 +2,10 @@
 
 Salinity data from 8 Mississippi Sound USGS stations. All available
 readings were downloaded through the USGS NWIS API using
-\`get_mssnd_salinity()\`, a wrapper for \`dataRetrieval::readNWISuv\`.
+`get_mssnd_salinity()`, a wrapper for
+[`dataRetrieval::readNWISuv`](https://rdrr.io/pkg/dataRetrieval/man/readNWISuv.html).
 Readings were also processed into daily min, mean, and max. Station
-metadata is provided in \`siteInfo\`.
+metadata is provided in `siteInfo`.
 
 ## Usage
 
@@ -14,7 +15,9 @@ mssnd_salinity
 
 ## Format
 
-\## \`mssnd_salinity\` A list containing 3 data frames:
+### `mssnd_salinity`
+
+A list containing 3 data frames:
 
 - data:
 

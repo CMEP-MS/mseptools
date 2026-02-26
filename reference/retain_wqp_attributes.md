@@ -43,8 +43,8 @@ intact.
 
 ## See also
 
-[`remove_empty`](https://sfirke.github.io/janitor/reference/remove_empty.html),
-[`get_wqp_data`](https://cmep-ms.github.io/mseptools/reference/get_wqp_data.md)
+[`janitor::remove_empty()`](https://sfirke.github.io/janitor/reference/remove_empty.html),
+[`get_wqp_data()`](https://cmep-ms.github.io/mseptools/reference/get_wqp_data.md)
 
 ## Examples
 

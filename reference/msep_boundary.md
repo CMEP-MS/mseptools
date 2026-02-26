@@ -11,8 +11,10 @@ msep_boundary
 
 ## Format
 
-\## `msep_boundary` An `sf` object, using CRS NAD83 (EPSG:4269), with a
-single polygon representing the MSEP outline.
+### `msep_boundary`
+
+An `sf` object, using CRS NAD83 (EPSG:4269), with a single polygon
+representing the MSEP outline.
 
 ## Details
 

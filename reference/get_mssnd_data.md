@@ -61,11 +61,11 @@ A named `list` with 2 or 3 components:
   Metadata for the stations, extracted from the attributes of the
   returned data frame.
 
-- `daily`:
+- `daily` (Optional):
 
-  (Optional) A data frame summarizing daily minimum, mean, and maximum
-  salinity values for each site and date. This is only included if
-  salinity data (`Sal`) is detected in the returned dataset.
+  A data frame summarizing daily minimum, mean, and maximum salinity
+  values for each site and date. This is only included if salinity data
+  (`Sal`) is detected in the returned dataset.
 
 ## Details
 

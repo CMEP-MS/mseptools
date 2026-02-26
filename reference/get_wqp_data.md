@@ -92,9 +92,9 @@ to generate an appropriate data citation for the WQP query.
 
 ## See also
 
-[`retain_wqp_attributes`](https://cmep-ms.github.io/mseptools/reference/retain_wqp_attributes.md),
-[`create_WQP_bib`](https://rdrr.io/pkg/dataRetrieval/man/create_WQP_bib.html),
-[`readWQPdata`](https://rdrr.io/pkg/dataRetrieval/man/readWQPdata.html)
+[`retain_wqp_attributes()`](https://cmep-ms.github.io/mseptools/reference/retain_wqp_attributes.md),
+[`dataRetrieval::create_WQP_bib()`](https://rdrr.io/pkg/dataRetrieval/man/create_WQP_bib.html),
+[`dataRetrieval::readWQPdata()`](https://rdrr.io/pkg/dataRetrieval/man/readWQPdata.html)
 
 ## Examples
 

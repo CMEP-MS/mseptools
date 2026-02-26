@@ -61,22 +61,22 @@ with popups showing the salinity value and site information.</p>
 
 <dt id="arg-data">data<a class="anchor" aria-label="anchor" href="#arg-data"></a></dt>
 <dd><p>A data frame containing salinity data for a single date,
-generally created by joining the $daily and $siteInfo components of
-output from the get_mssnd_data() function, then filtered to a single date.
-  Must include the following columns:</p><ul><li><p>dec_lon_va: Decimal longitude of station</p></li>
-<li><p>dec_lat_va: Decimal latitude of station</p></li>
-<li><p>sal_mean: Daily mean salinity in parts per thousand (ppt)</p></li>
-<li><p>clean_nm: Station name</p></li>
-<li><p>site_no: USGS site number</p></li>
+generally created by joining the <code>$daily</code> and <code>$siteInfo</code> components of
+output from the <code><a href="get_mssnd_data.html">get_mssnd_data()</a></code> function, then filtered to a single date.
+Must include the following columns:</p><ul><li><p><code>dec_lon_va</code>: Decimal longitude of station</p></li>
+<li><p><code>dec_lat_va</code>: Decimal latitude of station</p></li>
+<li><p><code>sal_mean</code>: Daily mean salinity in parts per thousand (ppt)</p></li>
+<li><p><code>clean_nm</code>: Station name</p></li>
+<li><p><code>site_no</code>: USGS site number</p></li>
 </ul></dd>
 
 
 <dt id="arg-palette">palette<a class="anchor" aria-label="anchor" href="#arg-palette"></a></dt>
-<dd><p>Character string specifying the color palette name (default: "YlGnBu")</p></dd>
+<dd><p>Character string specifying the color palette name (default: <code>"YlGnBu"</code>)</p></dd>
 
 
 <dt id="arg-domain">domain<a class="anchor" aria-label="anchor" href="#arg-domain"></a></dt>
-<dd><p>Numeric vector of length 2 specifying the domain range for colors (default: c(0, 40))</p></dd>
+<dd><p>Numeric vector of length 2 specifying the domain range for colors (default: <code>c(0, 40)</code>)</p></dd>
 
 
 <dt id="arg-color-function">color_function<a class="anchor" aria-label="anchor" href="#arg-color-function"></a></dt>
@@ -85,7 +85,7 @@ output from the get_mssnd_data() function, then filtered to a single date.
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A leaflet map object with added circle markers</p>
+    <p>A <code>leaflet</code> map object with added circle markers</p>
     </div>
 
     <div class="section level2">

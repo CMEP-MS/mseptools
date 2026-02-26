@@ -24,28 +24,31 @@ add_salinity_points(
 - data:
 
   A data frame containing salinity data for a single date, generally
-  created by joining the \$daily and \$siteInfo components of output
-  from the get_mssnd_data() function, then filtered to a single date.
-  Must include the following columns:
+  created by joining the `$daily` and `$siteInfo` components of output
+  from the
+  [`get_mssnd_data()`](https://cmep-ms.github.io/mseptools/reference/get_mssnd_data.md)
+  function, then filtered to a single date. Must include the following
+  columns:
 
-  - dec_lon_va: Decimal longitude of station
+  - `dec_lon_va`: Decimal longitude of station
 
-  - dec_lat_va: Decimal latitude of station
+  - `dec_lat_va`: Decimal latitude of station
 
-  - sal_mean: Daily mean salinity in parts per thousand (ppt)
+  - `sal_mean`: Daily mean salinity in parts per thousand (ppt)
 
-  - clean_nm: Station name
+  - `clean_nm`: Station name
 
-  - site_no: USGS site number
+  - `site_no`: USGS site number
 
 - palette:
 
-  Character string specifying the color palette name (default: "YlGnBu")
+  Character string specifying the color palette name (default:
+  `"YlGnBu"`)
 
 - domain:
 
   Numeric vector of length 2 specifying the domain range for colors
-  (default: c(0, 40))
+  (default: `c(0, 40)`)
 
 - color_function:
 
@@ -54,7 +57,7 @@ add_salinity_points(
 
 ## Value
 
-A leaflet map object with added circle markers
+A `leaflet` map object with added circle markers
 
 ## Examples
 
