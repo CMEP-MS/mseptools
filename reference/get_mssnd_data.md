@@ -1,8 +1,9 @@
 # Get data from USGS stations
 
 This function is largely a wrapper function for
-\`dataRetrieval::readNWISuv\`, but focused on salinity at the 8 USGS
-stations in the Mississippi portion of the Mississippi Sound.
+[`dataRetrieval::readNWISuv`](https://rdrr.io/pkg/dataRetrieval/man/readNWISuv.html),
+but focused on salinity at the 8 USGS stations in the Mississippi
+portion of the Mississippi Sound.
 
 ## Usage
 
@@ -27,44 +28,44 @@ get_mssnd_data(
 
 - params:
 
-  Character vector of USGS parameter codes. Defaults to \`00480\`, which
+  Character vector of USGS parameter codes. Defaults to `00480`, which
   corresponds to salinity.
 
 - startDate:
 
-  Date object or character string in \`YYYY-MM-DD\` format. Defaults to
+  Date object or character string in `YYYY-MM-DD` format. Defaults to
   one month ago based on the system date.
 
 - endDate:
 
-  Date object or character string in \`YYYY-MM-DD\` format. Defaults to
+  Date object or character string in `YYYY-MM-DD` format. Defaults to
   the current system date.
 
 - tz:
 
   Character string indicating the desired time zone. The underlying USGS
   function retrieves data in UTC, and this wrapper defaults to
-  \`America/Regina\` - local standard time (does not adjust for daylight
+  `America/Regina` - local standard time (does not adjust for daylight
   saving time).
 
 ## Value
 
-A named list with 2 or 3 components:
+A named `list` with 2 or 3 components:
 
-- \`data\`:
+- `data`:
 
   A data frame of raw unit-value (instantaneous) data from the USGS.
 
-- \`siteInfo\`:
+- `siteInfo`:
 
   Metadata for the stations, extracted from the attributes of the
   returned data frame.
 
-- \`daily\`:
+- `daily`:
 
   (Optional) A data frame summarizing daily minimum, mean, and maximum
   salinity values for each site and date. This is only included if
-  salinity data (\`Sal\`) is detected in the returned dataset.
+  salinity data (`Sal`) is detected in the returned dataset.
 
 ## Details
 
@@ -79,15 +80,15 @@ salinity values.
 
 The function relies on several external packages:
 
-- dataRetrieval for retrieving and renaming USGS data via
-  \`readNWISuv()\` and \`renameNWISColumns()\`
+- dataRetrieval for retrieving and renaming USGS data via `readNWISuv()`
+  and `renameNWISColumns()`
 
 - stringr for pattern matching and replacement in variable names via
-  \`str_replace()\` and \`str_detect()\`
+  `str_replace()` and `str_detect()`
 
 - dplyr for data manipulation, grouping, and summarizing
 
-- lubridate for date arithmetic (e.g., \`
+- lubridate for date arithmetic
 
 The default behavior focuses on salinity (parameter code 00480), but any
 other available parameters can be passed.
