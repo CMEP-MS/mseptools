@@ -27,7 +27,7 @@ Imports:
     plotly,
     rlang,
     stringr
-URL: https://github.com/CMEP-MS/mseptools
+URL: https://github.com/CMEP-MS/mseptools, https://cmep-ms.github.io/mseptools/
 BugReports: https://github.com/CMEP-MS/mseptools/issues
 Depends: 
     R (>= 3.5)

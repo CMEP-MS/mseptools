@@ -1,0 +1,29 @@
+url: https://cmep-ms.github.io/mseptools/
+template:
+  bootstrap: 5
+
+reference:
+- title: "Get Data"
+  desc: "Functions for retrieving data for the MSEP area from USGS and EPA servers"
+  contents:
+  - starts_with("get")
+- title: "Mapping"
+  desc: "Functions to map stations and data in the MSEP area"
+  contents:
+  - starts_with("map")
+- title: "Graphing"
+  desc: "Functions to graph data in the MSEP area"
+  contents:
+  - starts_with("plot")
+- title: "Data"
+  desc: "Compiled data in the MSEP area"
+  contents:
+  - starts_with("mssnd_salinity")
+  - msep_boundary
+- title: "Helper functions"
+  desc: "Functions used by the above functions"
+  contents:
+  - create_mssnd_basemap
+  - starts_with("add")
+  - clean_station_names
+  - retain_wqp_attributes
