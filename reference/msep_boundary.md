@@ -1,0 +1,23 @@
+# Mississippi Sound Watershed Boundary
+
+Outline of the Mississippi Sound Watershed, which is the combination of
+HUC4s 0317 and 0318.
+
+## Usage
+
+``` r
+msep_boundary
+```
+
+## Format
+
+\## `msep_boundary` An `sf` object, using CRS NAD83 (EPSG:4269), with a
+single polygon representing the MSEP outline.
+
+## Details
+
+NOT INTENDED FOR ANALYTICAL USE. The boundary has been simplified to
+reduce object size. For accurate boundaries, and other possible boundary
+configurations (e.g. only the portion of the watershed that is inside
+the state of MS), see the `msepBoundaries` package:
+<https://github.com/CMEP-MS/msepBoundaries>
