@@ -1,14 +1,14 @@
 #' Get data from USGS stations
 #'
-#' This function is largely a wrapper function for \code{dataRetrieval::readNWISuv}, but focused on salinity
+#' This function is largely a wrapper function for `dataRetrieval::readNWISuv`, but focused on salinity
 #' at the 8 USGS stations in the Mississippi portion of the Mississippi Sound.
 #'
 #' @param stations Character vector of USGS station IDs. Defaults to all 8 USGS stations located in the Mississippi portion of the Mississippi Sound.
-#' @param params Character vector of USGS parameter codes. Defaults to \code{00480}, which corresponds to salinity.
-#' @param startDate Date object or character string in \code{YYYY-MM-DD} format. Defaults to one month ago based on the system date.
-#' @param endDate Date object or character string in \code{YYYY-MM-DD} format. Defaults to the current system date.
+#' @param params Character vector of USGS parameter codes. Defaults to `00480`, which corresponds to salinity.
+#' @param startDate Date object or character string in `YYYY-MM-DD` format. Defaults to one month ago based on the system date.
+#' @param endDate Date object or character string in `YYYY-MM-DD` format. Defaults to the current system date.
 #' @param tz Character string indicating the desired time zone. The underlying USGS function retrieves data in UTC,
-#'   and this wrapper defaults to \code{America/Regina} - local standard time (does not adjust for daylight saving time).
+#'   and this wrapper defaults to `America/Regina` - local standard time (does not adjust for daylight saving time).
 #'
 #' @details
 #' This function downloads high-frequency data via the USGS NWIS portal. It is specific to Mississippi Sound salinity data and does some processing as well.
@@ -17,19 +17,19 @@
 #' data is present) daily summaries of minimum, mean, and maximum salinity values.
 #'
 #'
-#' @return A named \code{list} with 2 or 3 components:
+#' @return A named `list` with 2 or 3 components:
 #' \describe{
-#'   \item{\code{data}}{A data frame of raw unit-value (instantaneous) data from the USGS.}
-#'   \item{\code{siteInfo}}{Metadata for the stations, extracted from the attributes of the returned data frame.}
-#'   \item{\code{daily}}{(Optional) A data frame summarizing daily minimum, mean, and maximum salinity values for each site and date.
-#'     This is only included if salinity data (\code{Sal}) is detected in the returned dataset.}
+#'   \item{`data`}{A data frame of raw unit-value (instantaneous) data from the USGS.}
+#'   \item{`siteInfo`}{Metadata for the stations, extracted from the attributes of the returned data frame.}
+#'   \item{`daily` (Optional)}{A data frame summarizing daily minimum, mean, and maximum salinity values for each site and date.
+#'     This is only included if salinity data (`Sal`) is detected in the returned dataset.}
 #' }
 #'
 #' @details
 #' The function relies on several external packages:
 #' \itemize{
-#'   \item \pkg{dataRetrieval} for retrieving and renaming USGS data via \code{readNWISuv()} and \code{renameNWISColumns()}
-#'   \item \pkg{stringr} for pattern matching and replacement in variable names via \code{str_replace()} and \code{str_detect()}
+#'   \item \pkg{dataRetrieval} for retrieving and renaming USGS data via `readNWISuv()` and `renameNWISColumns()`
+#'   \item \pkg{stringr} for pattern matching and replacement in variable names via `str_replace()` and `str_detect()`
 #'   \item \pkg{dplyr} for data manipulation, grouping, and summarizing
 #'   \item \pkg{lubridate} for date arithmetic
 #' }

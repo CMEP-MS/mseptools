@@ -6,11 +6,11 @@
 #' NOT INTENDED FOR ANALYTICAL USE. The boundary has been simplified
 #' to reduce object size. For accurate boundaries, and other possible boundary
 #' configurations (e.g. only the portion of the watershed that is inside the
-#' state of MS), see the \code{msepBoundaries} package: \url{https://github.com/CMEP-MS/msepBoundaries}
+#' state of MS), see the `msepBoundaries` package: <https://github.com/CMEP-MS/msepBoundaries>
 #'
 #'
-#' @format ## \code{msep_boundary}
-#' An \code{sf} object, using CRS NAD83 (EPSG:4269), with a single polygon representing
+#' @format ## `msep_boundary`
+#' An `sf` object, using CRS NAD83 (EPSG:4269), with a single polygon representing
 #' the MSEP outline.
 
 "msep_boundary"

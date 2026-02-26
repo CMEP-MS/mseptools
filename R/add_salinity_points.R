@@ -5,21 +5,21 @@
 #'
 #' @param map A leaflet map object
 #' @param data A data frame containing salinity data for a single date,
-#' generally created by joining the $daily and $siteInfo components of
-#' output from the get_mssnd_data() function, then filtered to a single date.
+#' generally created by joining the `$daily` and `$siteInfo` components of
+#' output from the `get_mssnd_data()` function, then filtered to a single date.
 #'   Must include the following columns:
 #'   \itemize{
-#'     \item dec_lon_va: Decimal longitude of station
-#'     \item dec_lat_va: Decimal latitude of station
-#'     \item sal_mean: Daily mean salinity in parts per thousand (ppt)
-#'     \item clean_nm: Station name
-#'     \item site_no: USGS site number
+#'     \item `dec_lon_va`: Decimal longitude of station
+#'     \item `dec_lat_va`: Decimal latitude of station
+#'     \item `sal_mean`: Daily mean salinity in parts per thousand (ppt)
+#'     \item `clean_nm`: Station name
+#'     \item `site_no`: USGS site number
 #'   }
-#' @param palette Character string specifying the color palette name (default: "YlGnBu")
-#' @param domain Numeric vector of length 2 specifying the domain range for colors (default: c(0, 40))
+#' @param palette Character string specifying the color palette name (default: `"YlGnBu"`)
+#' @param domain Numeric vector of length 2 specifying the domain range for colors (default: `c(0, 40)`)
 #' @param color_function Optional pre-created color function (overrides palette and domain if provided)
 #'
-#' @return A leaflet map object with added circle markers
+#' @return A `leaflet` map object with added circle markers
 #'
 #' @import leaflet
 #' @importFrom htmltools HTML

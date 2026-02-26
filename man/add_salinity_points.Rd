@@ -16,25 +16,25 @@ add_salinity_points(
 \item{map}{A leaflet map object}
 
 \item{data}{A data frame containing salinity data for a single date,
-generally created by joining the $daily and $siteInfo components of
-output from the get_mssnd_data() function, then filtered to a single date.
-  Must include the following columns:
-  \itemize{
-    \item dec_lon_va: Decimal longitude of station
-    \item dec_lat_va: Decimal latitude of station
-    \item sal_mean: Daily mean salinity in parts per thousand (ppt)
-    \item clean_nm: Station name
-    \item site_no: USGS site number
-  }}
+generally created by joining the \verb{$daily} and \verb{$siteInfo} components of
+output from the \code{get_mssnd_data()} function, then filtered to a single date.
+Must include the following columns:
+\itemize{
+\item \code{dec_lon_va}: Decimal longitude of station
+\item \code{dec_lat_va}: Decimal latitude of station
+\item \code{sal_mean}: Daily mean salinity in parts per thousand (ppt)
+\item \code{clean_nm}: Station name
+\item \code{site_no}: USGS site number
+}}
 
-\item{palette}{Character string specifying the color palette name (default: "YlGnBu")}
+\item{palette}{Character string specifying the color palette name (default: \code{"YlGnBu"})}
 
-\item{domain}{Numeric vector of length 2 specifying the domain range for colors (default: c(0, 40))}
+\item{domain}{Numeric vector of length 2 specifying the domain range for colors (default: \code{c(0, 40)})}
 
 \item{color_function}{Optional pre-created color function (overrides palette and domain if provided)}
 }
 \value{
-A leaflet map object with added circle markers
+A \code{leaflet} map object with added circle markers
 }
 \description{
 Adds circle markers to a leaflet map representing salinity measurements,
