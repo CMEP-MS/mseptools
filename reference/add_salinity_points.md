@@ -57,7 +57,7 @@ add_salinity_points(
 
 ## Value
 
-A `leaflet` map object with added circle markers
+A leaflet map object with added circle markers
 
 ## Examples
 

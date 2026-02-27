@@ -1,5 +1,10 @@
 # Changelog
 
+## mseptools 0.2.3
+
+- pkgdown site created: <https://cmep-ms.github.io/mseptools/>  
+- documentation updates
+
 ## mseptools 0.2.2
 
 - added more tests for plotting and mapping functions

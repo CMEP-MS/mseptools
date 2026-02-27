@@ -27,7 +27,7 @@ Functions to graph data in the MSEP area
 - [`plot_mssnd_salinity()`](https://cmep-ms.github.io/mseptools/reference/plot_mssnd_salinity.md)
   : Plot Mississippi Sound Salinity Data
 
-## Data
+## Internal Datasets
 
 Compiled data in the MSEP area
 
@@ -40,7 +40,7 @@ Compiled data in the MSEP area
 
 ## Helper functions
 
-Functions used by the above functions
+Functions used by other functions
 
 - [`create_mssnd_basemap()`](https://cmep-ms.github.io/mseptools/reference/create_mssnd_basemap.md)
   : Create a leaflet base map centered on Mississippi Sound

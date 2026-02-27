@@ -2,8 +2,12 @@
 
 Creates an interactive leaflet map displaying salinity data from USGS
 stations in the Mississippi Sound area. This is a convenience function
-that combines the create_mssnd_basemap, add_salinity_points, and
-add_salinity_legend functions in a single call.
+that combines the
+[`create_mssnd_basemap()`](https://cmep-ms.github.io/mseptools/reference/create_mssnd_basemap.md),
+[`add_salinity_points()`](https://cmep-ms.github.io/mseptools/reference/add_salinity_points.md),
+and
+[`add_salinity_legend()`](https://cmep-ms.github.io/mseptools/reference/add_salinity_legend.md)
+functions in a single call.
 
 ## Usage
 
@@ -16,28 +20,31 @@ map_mssnd_salinity(data, palette = "YlGnBu", domain = c(0, 40))
 - data:
 
   A data frame containing salinity data for a single date, generally
-  created by joining the \$daily and \$siteInfo components of output
-  from the get_mssnd_data() function, then filtered to a single date.
-  Must include the following columns:
+  created by joining the `$daily` and `$siteInfo` components of output
+  from the
+  [`get_mssnd_data()`](https://cmep-ms.github.io/mseptools/reference/get_mssnd_data.md)
+  function, then filtered to a single date. Must include the following
+  columns:
 
-  - dec_lon_va: Decimal longitude of station
+  - `dec_lon_va`: Decimal longitude of station
 
-  - dec_lat_va: Decimal latitude of station
+  - `dec_lat_va`: Decimal latitude of station
 
-  - sal_mean: Daily mean salinity in parts per thousand (ppt)
+  - `sal_mean`: Daily mean salinity in parts per thousand (ppt)
 
-  - clean_nm: Station name
+  - `clean_nm`: Station name
 
-  - site_no: USGS site number
+  - `site_no`: USGS site number
 
 - palette:
 
-  Character string specifying the color palette name (default: "YlGnBu")
+  Character string specifying the color palette name (default:
+  `"YlGnBu"`)
 
 - domain:
 
-  Numeric vector of length 2 specifying the domain range (default: c(0,
-  40))
+  Numeric vector of length 2 specifying the domain range (default:
+  `c(0, 40)`)
 
 ## Value
 
