@@ -19,7 +19,7 @@
 #' @param domain Numeric vector of length 2 specifying the domain range for colors (default: `c(0, 40)`)
 #' @param color_function Optional pre-created color function (overrides palette and domain if provided)
 #'
-#' @return A `leaflet` map object with added circle markers
+#' @return A leaflet map object with added circle markers
 #'
 #' @import leaflet
 #' @importFrom htmltools HTML

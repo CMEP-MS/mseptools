@@ -9,7 +9,7 @@
 #' state of MS), see the `msepBoundaries` package: <https://github.com/CMEP-MS/msepBoundaries>
 #'
 #'
-#' @format ## `msep_boundary`
+#' @format
 #' An `sf` object, using CRS NAD83 (EPSG:4269), with a single polygon representing
 #' the MSEP outline.
 

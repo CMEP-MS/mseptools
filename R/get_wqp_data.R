@@ -35,7 +35,7 @@
 #'   complex areas like multiple HUCs or counties, even through the WQP site itself.
 #'   Inside this function, the `characteristicType` option only works with `area = "basinCoastalStreams"`.
 #'
-#' @returns A data frame containing WQP results for the requested area. Empty columns are removed.
+#' @return A data frame containing WQP results for the requested area. Empty columns are removed.
 #'
 #' @details
 #' This function preserves Water Quality Portal (WQP) metadata stored as

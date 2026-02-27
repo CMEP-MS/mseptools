@@ -15,13 +15,13 @@ reference:
   desc: "Functions to graph data in the MSEP area"
   contents:
   - starts_with("plot")
-- title: "Data"
+- title: "Internal Datasets"
   desc: "Compiled data in the MSEP area"
   contents:
   - starts_with("mssnd_salinity")
   - msep_boundary
 - title: "Helper functions"
-  desc: "Functions used by the above functions"
+  desc: "Functions used by other functions"
   contents:
   - create_mssnd_basemap
   - starts_with("add")

@@ -34,7 +34,7 @@ Must include the following columns:
 \item{color_function}{Optional pre-created color function (overrides palette and domain if provided)}
 }
 \value{
-A \code{leaflet} map object with added circle markers
+A leaflet map object with added circle markers
 }
 \description{
 Adds circle markers to a leaflet map representing salinity measurements,
