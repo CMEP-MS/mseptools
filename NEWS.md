@@ -1,3 +1,8 @@
+# mseptools 0.3  
+
+* added `MDEQ_beach_stations` data object with information on 21 MDEQ beach sampling stations, so it will be easier to associate WQX data with the station IDs actually used on the [DEQ beaches website](https://beaches.mdeq.ms.gov/) (which doesn't provide lats and longs but does provide, under 'Historical Data', historical advisory and closure information like start and end dates for each instance).  
+* moved tests that call APIs to a `dev` folder, which has been added to `.R/buildignore` so it won't check the API every time I run tests. Will have to run these manually every so often.
+
 # mseptools 0.2.3  
 
 * pkgdown site created: https://cmep-ms.github.io/mseptools/  
