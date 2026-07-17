@@ -20,6 +20,7 @@ reference:
   contents:
   - starts_with("mssnd_salinity")
   - msep_boundary
+  - MDEQ_beach_stations
 - title: "Helper functions"
   desc: "Functions used by other functions"
   contents:
