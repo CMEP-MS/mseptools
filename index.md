@@ -8,6 +8,7 @@ Mississippi Sound Estuary Program and other MSEP-area researchers.
 You can install `mseptools` from GitHub with the following code:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("cmep-ms/mseptools")
 ```
@@ -20,6 +21,7 @@ This is a basic example of downloading a week’s worth of salinity data
 from all USGS stations in the Mississippi Sound:
 
 ``` r
+
 library(mseptools)
 dat <- get_mssnd_data(startDate = "2025-01-01", endDate = "2025-01-08")
 head(dat$data)
@@ -36,6 +38,7 @@ double-click to show *only* that station. There is a slider bar below so
 you can narrow the date range.
 
 ``` r
+
 plot_mssnd_salinity(dat)
 ```
 
@@ -45,6 +48,7 @@ This function uses `leaflet` to show the USGS monitoring stations on a
 map.
 
 ``` r
+
 map_mssnd_usgs(dat$siteInfo)
 ```
 
@@ -55,6 +59,7 @@ takes a named vector of colors; `leaflet` does not. A common palette can
 be created and used in both functions as follows:
 
 ``` r
+
 stns <- sort(dat$siteInfo$clean_nm)
 
 # static color palette

@@ -1,10 +1,10 @@
-pandoc: 3.1.11
-pkgdown: 2.2.0
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   articles/Maps-and-Plots: Maps-and-Plots.html
   mseptools: mseptools.html
-last_built: 2026-02-27T15:01Z
+last_built: 2026-07-17T16:47Z
 urls:
   reference: https://cmep-ms.github.io/mseptools/reference
   article: https://cmep-ms.github.io/mseptools/articles

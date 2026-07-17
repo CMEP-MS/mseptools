@@ -1,6 +1,7 @@
 # mseptools
 
 ``` r
+
 library(mseptools)
 ```
 
@@ -11,6 +12,7 @@ library(mseptools)
 We’ll work with the built-in 2019 salinity dataset.
 
 ``` r
+
 dat <- mssnd_salinity2019
 ```
 
@@ -18,6 +20,7 @@ Look at the head of the main data frame. This contains salinity readings
 at 30-minute intervals.
 
 ``` r
+
 head(dat$data)
 #>   agency_cd         site_no            dateTime Sal_Inst Sal_Inst_cd
 #> 1      USGS 300722089150100 2019-01-31 11:00:00       13           A
@@ -38,6 +41,7 @@ head(dat$data)
 Look at the head of the daily averages data frame.
 
 ``` r
+
 head(dat$daily)
 #>           site_no       date  sal_mean sal_min sal_max
 #> 1 301001089442600 2019-01-01  2.858333     2.7       3
@@ -51,6 +55,7 @@ head(dat$daily)
 Something strange might be going on with January 1st.
 
 ``` r
+
 dat$daily |> 
     dplyr::arrange(date) |> 
     head()
@@ -70,6 +75,7 @@ issue.
 And let’s see what’s in the site info data frame.
 
 ``` r
+
 head(dat$siteInfo)
 #>                                           station_nm         site_no agency_cd
 #> 1                Rigolets at Hwy 90 near Slidell, LA 301001089442600      USGS

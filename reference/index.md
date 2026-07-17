@@ -37,6 +37,8 @@ Compiled data in the MSEP area
   : Mississippi Sound Salinity Data from 2019
 - [`msep_boundary`](https://cmep-ms.github.io/mseptools/reference/msep_boundary.md)
   : Mississippi Sound Watershed Boundary
+- [`MDEQ_beach_stations`](https://cmep-ms.github.io/mseptools/reference/MDEQ_beach_stations.md)
+  : MDEQ Beach Stations
 
 ## Helper functions
 

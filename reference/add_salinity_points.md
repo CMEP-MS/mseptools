@@ -62,6 +62,7 @@ A leaflet map object with added circle markers
 ## Examples
 
 ``` r
+
 # generate salinity data to map
 to_map <- dplyr::left_join(mssnd_salinity$daily, mssnd_salinity$siteInfo) |>
     dplyr::filter(date == as.Date("2023-06-01"))
