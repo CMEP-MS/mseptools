@@ -1,3 +1,5 @@
+# mseptools 0.3.0
+
 # mseptools 0.3  
 
 * added `MDEQ_beach_stations` data object with information on 21 MDEQ beach sampling stations, so it will be easier to associate WQX data with the station IDs actually used on the [DEQ beaches website](https://beaches.mdeq.ms.gov/) (which doesn't provide lats and longs but does provide, under 'Historical Data', historical advisory and closure information like start and end dates for each instance).  
