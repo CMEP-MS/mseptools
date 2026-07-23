@@ -33,7 +33,7 @@ MDEQ_beach_stations <- data.frame(
                                               "Front Beach","Shearwater Beach",
                                               "Pascagoula Beach West",
                                               "Pascagoula Beach East",
-                                              "Courthouse Road Beach","Edgewater Beach",
+                                              "East Courthouse Road Beach","Edgewater Beach",
                                               "Biloxi West Central Beach",
                                               "Biloxi East Central Beach",
                                               "Biloxi East Beach"),
