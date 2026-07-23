@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">mseptools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,6 +37,10 @@
       <small>Source: <a href="https://github.com/CMEP-MS/mseptools/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.1" id="mseptools-031">mseptools 0.3.1<a class="anchor" aria-label="anchor" href="#mseptools-031"></a></h2>
+<ul><li>corrected a beach name in <code>MDEQ_beach_stations</code>: DEQStation 10B went from “Courthouse Road Beach” to “East Courthouse Road Beach” to match historical closures and advisories data file, labeling on the beaches website, and the coordinates themselves (which are on the east side of the Courthouse Road pier). Believe the wrong name came from WQX station naming, but “10A” in older data files is labelled as “Courthouse Road Beach” and is on the west side of Courthouse Road in Gulfport.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="mseptools-030">mseptools 0.3.0<a class="anchor" aria-label="anchor" href="#mseptools-030"></a></h2>
 <ul><li>added <code>MDEQ_beach_stations</code> data object with information on 21 MDEQ beach sampling stations, so it will be easier to associate WQX data with the station IDs actually used on the <a href="https://beaches.mdeq.ms.gov/" class="external-link">DEQ beaches website</a> (which doesn’t provide lats and longs but does provide, under ‘Historical Data’, historical advisory and closure information like start and end dates for each instance).<br></li>

@@ -1,5 +1,16 @@
 # Changelog
 
+## mseptools 0.3.1
+
+- corrected a beach name in `MDEQ_beach_stations`: DEQStation 10B went
+  from “Courthouse Road Beach” to “East Courthouse Road Beach” to match
+  historical closures and advisories data file, labeling on the beaches
+  website, and the coordinates themselves (which are on the east side of
+  the Courthouse Road pier). Believe the wrong name came from WQX
+  station naming, but “10A” in older data files is labelled as
+  “Courthouse Road Beach” and is on the west side of Courthouse Road in
+  Gulfport.
+
 ## mseptools 0.3.0
 
 - added `MDEQ_beach_stations` data object with information on 21 MDEQ
