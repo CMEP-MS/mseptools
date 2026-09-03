@@ -17,11 +17,11 @@ get_wqp_data(
 \item{area}{Character string specifying the spatial area to query.
 Must be one of:
 \describe{
-  \item{\code{"watershedComplete"}}{complete Mississippi Sound Watershed, HUCs 0317 and 0318. May return data from Alabama and Louisiana as well as Mississippi.}
-  \item{\code{"3coastalCounties"}}{Jackson, Harrison, and Hancock counties (MS)}
-  \item{\code{"6coastalCounties"}}{Jackson, Harrison, Hancock, George,
-    Stone, and Pearl River counties (MS)}
-  \item{\code{"basinCoastalStreams"}}{MDEQ's Coastal Streams Basin: HUC 03170009}
+\item{\code{"watershedComplete"}}{complete Mississippi Sound Watershed, HUCs 0317 and 0318. May return data from Alabama and Louisiana as well as Mississippi.}
+\item{\code{"3coastalCounties"}}{Jackson, Harrison, and Hancock counties (MS)}
+\item{\code{"6coastalCounties"}}{Jackson, Harrison, Hancock, George,
+Stone, and Pearl River counties (MS)}
+\item{\code{"basinCoastalStreams"}}{MDEQ's Coastal Streams Basin: HUC 03170009}
 }}
 
 \item{sampleMedia}{Character string passed to

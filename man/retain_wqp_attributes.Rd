@@ -17,9 +17,9 @@ has lost some or all of the original attributes.}
 }
 \value{
 A data frame with the same columns as \code{data_reduced} and the
-  attributes from \code{data_full} restored where missing. The returned
-  object preserves WQP metadata such as site information, variable
-  descriptions, and request details.
+attributes from \code{data_full} restored where missing. The returned
+object preserves WQP metadata such as site information, variable
+descriptions, and request details.
 }
 \description{
 This function restores attributes that are lost when empty columns are

@@ -10,14 +10,14 @@ map_mssnd_salinity(data, palette = "YlGnBu", domain = c(0, 40))
 \item{data}{A data frame containing salinity data for a single date,
 generally created by joining the $daily and $siteInfo components of
 output from the get_mssnd_data() function, then filtered to a single date.
-  Must include the following columns:
-  \itemize{
-    \item dec_lon_va: Decimal longitude of station
-    \item dec_lat_va: Decimal latitude of station
-    \item sal_mean: Daily mean salinity in parts per thousand (ppt)
-    \item clean_nm: Station name
-    \item site_no: USGS site number
-  }}
+Must include the following columns:
+\itemize{
+\item dec_lon_va: Decimal longitude of station
+\item dec_lat_va: Decimal latitude of station
+\item sal_mean: Daily mean salinity in parts per thousand (ppt)
+\item clean_nm: Station name
+\item site_no: USGS site number
+}}
 
 \item{palette}{Character string specifying the color palette name (default: "YlGnBu")}
 
@@ -25,7 +25,7 @@ output from the get_mssnd_data() function, then filtered to a single date.
 }
 \value{
 A leaflet map object centered on the Mississippi Sound area (approximately
-  30.25°N, 89.15°W) with station markers colored by salinity values.
+30.25°N, 89.15°W) with station markers colored by salinity values.
 }
 \description{
 Creates an interactive leaflet map displaying salinity data from USGS stations
@@ -35,7 +35,7 @@ in a single call.
 }
 \note{
 This function is currently specific to USGS station data format. The input
-  should represent data from a single date.
+should represent data from a single date.
 }
 \examples{
 # Using the included mssnd_salinity example dataset
