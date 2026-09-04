@@ -8,8 +8,8 @@
 #'
 #'
 #' @param data A list with three required elements:
-#'   \code{data} (instantaneous measurements), \code{daily} (daily averages), and \code{siteInfo}
-#'   (station metadata). This is typically the output from the \code{get_mssnd_data()} function.
+#'   `data` (instantaneous measurements), `daily` (daily averages), and `siteInfo`
+#'   (station metadata). This is typically the output from the `get_mssnd_data()` function.
 #' @param nrow Integer. Number of rows in the subplot layout. Default is 2 (instantaneous data on top,
 #'   daily means on bottom). Change to 1 if you prefer the graphs side-by-side.
 #' @param colors Character vector of color codes to use for different stations. Can be a named vector.

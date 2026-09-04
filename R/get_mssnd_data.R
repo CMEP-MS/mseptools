@@ -17,11 +17,11 @@
 #' data is present) daily summaries of minimum, mean, and maximum salinity values.
 #'
 #'
-#' @return A named list with 2 or 3 components:
+#' @return A named `list` with 2 or 3 components:
 #' \describe{
 #'   \item{`data`}{A data frame of raw unit-value (instantaneous) data from the USGS.}
 #'   \item{`siteInfo`}{Metadata for the stations, extracted from the attributes of the returned data frame.}
-#'   \item{`daily`}{(Optional) A data frame summarizing daily minimum, mean, and maximum salinity values for each site and date.
+#'   \item{`daily` (Optional)}{A data frame summarizing daily minimum, mean, and maximum salinity values for each site and date.
 #'     This is only included if salinity data (`Sal`) is detected in the returned dataset.}
 #' }
 #'
@@ -31,7 +31,7 @@
 #'   \item \pkg{dataRetrieval} for retrieving and renaming USGS data via `readNWISuv()` and `renameNWISColumns()`
 #'   \item \pkg{stringr} for pattern matching and replacement in variable names via `str_replace()` and `str_detect()`
 #'   \item \pkg{dplyr} for data manipulation, grouping, and summarizing
-#'   \item \pkg{lubridate} for date arithmetic (e.g., `%m-% months(1)`)
+#'   \item \pkg{lubridate} for date arithmetic
 #' }
 #'
 #' The default behavior focuses on salinity (parameter code 00480), but any other available parameters can be passed.

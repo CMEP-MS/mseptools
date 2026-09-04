@@ -43,6 +43,6 @@ restored <- retain_wqp_attributes(full, reduced)
 
 }
 \seealso{
-\code{\link[janitor]{remove_empty}},
-\code{\link[mseptools]{get_wqp_data}}
+\code{\link[janitor:remove_empty]{janitor::remove_empty()}},
+\code{\link[=get_wqp_data]{get_wqp_data()}}
 }

@@ -1,0 +1,61 @@
+---
+title: "mseptools"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mseptools}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mseptools)
+```
+
+## Example  
+
+### Examine Data  
+
+We'll work with the built-in 2019 salinity dataset.
+
+``` {r}
+dat <- mssnd_salinity2019
+```
+
+Look at the head of the main data frame. This contains salinity readings at 30-minute intervals.  
+
+```{r}
+head(dat$data)
+```
+
+Look at the head of the daily averages data frame.  
+
+```{r}
+head(dat$daily)
+```
+
+Something strange might be going on with January 1st.  
+
+```{r}
+dat$daily |> 
+    dplyr::arrange(date) |> 
+    head()
+```
+
+Yes, I probably need to fix something inside the function that calculates daily averages - there's probably some UTC-to-LST conversion issue.  
+
+
+And let's see what's in the site info data frame.  
+
+```{r}
+head(dat$siteInfo)
+```
+
+
+For mapping and graphing of this dataset, check out the 'Maps and Plots' article.  

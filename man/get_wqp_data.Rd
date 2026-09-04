@@ -79,7 +79,7 @@ dat2 <- get_wqp_data(
 }
 }
 \seealso{
-\code{\link[mseptools]{retain_wqp_attributes}},
-\code{\link[dataRetrieval]{create_WQP_bib}},
-\code{\link[dataRetrieval]{readWQPdata}}
+\code{\link[=retain_wqp_attributes]{retain_wqp_attributes()}},
+\code{\link[dataRetrieval:create_WQP_bib]{dataRetrieval::create_WQP_bib()}},
+\code{\link[dataRetrieval:readWQPdata]{dataRetrieval::readWQPdata()}}
 }

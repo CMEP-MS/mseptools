@@ -5,11 +5,8 @@
 \alias{msep_boundary}
 \title{Mississippi Sound Watershed Boundary}
 \format{
-\subsection{\code{msep_boundary}}{
-
 An \code{sf} object, using CRS NAD83 (EPSG:4269), with a single polygon representing
 the MSEP outline.
-}
 }
 \usage{
 msep_boundary
