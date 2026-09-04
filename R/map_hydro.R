@@ -1,4 +1,4 @@
-#' Overlay USGS Hydrography on Maps
+#' Overlay Rivers/Streams from USGS Hydrography onto Maps
 #'
 #' Adds the USGS Hydrography cached tile layer and updates the layer controls on
 #' existing `mapview` or `tmap` interactive map objects.
@@ -6,27 +6,47 @@
 #' @param x An interactive map object of class `mapview` or `tmap`.
 #' @param type Character string specifying the object type. Options are `"auto"`
 #'   (default, automatically detects class), `"mapview"`, or `"tmap"`.
-#' @param base_groups Character vector of basemap names to display in the layer control menu.
-#'   If `NULL` (default), base groups are automatically inferred from object properties (given priority) or global options.
-#'   If base groups have not been specified in either object properties or global options, defaults
-#'   for `"mapview"` objects are: `c("Esri.OceanBasemap", "Esri.WorldGrayCanvas",  "Esri.WorldTopoMap", "OpenStreetMap")`;
-#'   and for `"tmap"` objects are: `c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas", "OpenStreetMap")`.
+#' @param base_groups Controls which basemaps appear in the layer control menu.
+#'   One of:
+#'   \itemize{
+#'     \item `"default"` (default) — applies built-in package default basemaps.
+#'     \item `"inherit"` — preserves existing basemaps and layer controls on `x`,
+#'       simply overlaying the USGS Hydrography tile layer onto the map as constructed.
+#'     \item A character vector — used verbatim as base group names in the layer control.
+#'   }
 #' @param overlay_name Character string for the layer name in the controls. Defaults to the variable name passed to `x`.
 #' @param ... Additional arguments passed to underlying mapping methods.
 #'
-#' @return A \code{\link[leaflet]{leaflet}} map object containing the added USGS Hydrography layer and modified layer controls.
+#' @return A \code{\link[leaflet]{leaflet}} map object containing the added USGS Hydrography layer.
 #'
 #' @export
 #'
 #' @examples
 #' \dontrun{
 #' library(mapview)
-#' m <- mapview(breweries)
+#' m <- mapview(MDEQ_beach_stations)
 #' map_hydro(m)
+#' map_hydro(m, base_groups = "inherit")
+#' map_hydro(m, base_groups = c("CartoDB.Positron", "OpenStreetMap"))
 #' }
+#'
+#'
+#'
+#'
+#'
+#' NOT APPLYING BASE GROUPS CORRECTLY IN MAPVIEW - names show up
+#' but it's still Positron under everything
+#'
+#'
+#'
+#'
+#'
+#'
+#'
+#'
 map_hydro <- function(x,
                       type = c("auto", "mapview", "tmap"),
-                      base_groups = NULL,
+                      base_groups = "default",
                       overlay_name = NULL,
                       ...) {
 
@@ -43,69 +63,27 @@ map_hydro <- function(x,
         }
     }
 
-    # --- CUSTOM DEFAULTS PER PACKAGE ---
+    # --- PACKAGE DEFAULTS ---
     custom_mapview_defaults <- c("Esri.OceanBasemap", "Esri.WorldGrayCanvas",
                                  "Esri.WorldTopoMap", "OpenStreetMap")
 
     custom_tmap_defaults <- c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas",
                               "OpenStreetMap")
 
-    # --- FACTORY STARTUP SIGNATURES ---
-    factory_mapview_defaults <- c("CartoDB.Positron", "CartoDB.DarkMatter",
-                                  "OpenStreetMap", "Esri.WorldImagery")
-
-    factory_tmap_defaults <- list(
-        c("OpenStreetMap", "Esri.WorldImagery", "CartoDB.Positron"),
-        c("OpenStreetMap", "Esri.WorldImagery", "CartoDB.Voyager"),
-        c("Esri.WorldCanvas", "OpenStreetMap", "Esri.WorldImagery")
-    )
-
-    # 2. Extract base_groups dynamically if not explicitly supplied
-    if (is.null(base_groups)) {
-
-        # --- MAPVIEW LOGIC ---
-        if (type == "mapview") {
-            # Check object-level basemaps inside the mapview structure first
-            mv_base <- tryCatch(x@object[[1]]@control$baseGroups, error = function(e) NULL)
-
-            if (!is.null(mv_base) && length(mv_base) > 0) {
-                base_groups <- mv_base
-            } else {
-                current_global <- mapview::mapviewGetOption("basemaps")
-
-                # If sitting on factory default, swap to custom_mapview_defaults
-                if (identical(current_global, factory_mapview_defaults)) {
-                    base_groups <- custom_mapview_defaults
-                } else {
-                    base_groups <- current_global
-                }
-            }
-
-            # --- TMAP LOGIC ---
-        } else if (type == "tmap") {
-            opts <- tmap::tmap_options()
-            current_tmap_base <- if (!is.null(opts$basemap.server)) opts$basemap.server else opts$basemaps
-
-            # Check if current_tmap_base matches any known factory default signatures
-            is_tmap_factory_default <- any(sapply(factory_tmap_defaults, function(f_def) {
-                identical(current_tmap_base, f_def)
-            }))
-
-            # If sitting on factory default, swap to custom_tmap_defaults
-            if (is.null(current_tmap_base) || is_tmap_factory_default) {
-                base_groups <- custom_tmap_defaults
-            } else {
-                base_groups <- current_tmap_base
-            }
+    # Validate single string options
+    if (length(base_groups) == 1 && base_groups %in% c("default", "inherit")) {
+        if (base_groups == "default") {
+            base_groups <- if (type == "mapview") custom_mapview_defaults else custom_tmap_defaults
         }
+        # If "inherit", base_groups remains "inherit" to trigger bypass below
     }
 
-    # 3. Determine layer name to display in control menu
+    # 2. Determine layer name to display in control menu
     if (is.null(overlay_name)) {
         overlay_name <- deparse(substitute(x))
     }
 
-    # 4. Extract underlying Leaflet map
+    # 3. Extract underlying Leaflet map
     if (type == "mapview") {
         lf_map <- x@map
     } else if (type == "tmap") {
@@ -113,16 +91,27 @@ map_hydro <- function(x,
         lf_map <- tmap::tmap_leaflet(x)
     }
 
-    # 5. Inject USGS Hydro layer and dynamic layer controls
-    lf_map |>
-        leaflet::addTiles(
-            urlTemplate = "https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}",
-            attribution = "USGS Hydrography",
-            group = "USGS Hydrography"
-        ) |>
-        leaflet::addLayersControl(
-            baseGroups = base_groups,
-            overlayGroups = c("USGS Hydrography", overlay_name),
-            options = leaflet::layersControlOptions(collapsed = TRUE)
+    # 4. Inject USGS Hydro layer
+    lf_map <- leaflet::addTiles(
+        lf_map,
+        urlTemplate = "https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}",
+        attribution = "USGS Hydrography",
+        group = "USGS Hydrography"
+    )
+
+    # 5. Apply or skip layer controls update
+    if (identical(base_groups, "inherit")) {
+        # Return map as constructed without modifying existing base/overlay controls
+        return(lf_map)
+    } else {
+        # Apply custom or default baseGroups
+        return(
+            leaflet::addLayersControl(
+                lf_map,
+                baseGroups = base_groups,
+                overlayGroups = c("USGS Hydrography", overlay_name),
+                options = leaflet::layersControlOptions(collapsed = TRUE)
+            )
         )
+    }
 }
