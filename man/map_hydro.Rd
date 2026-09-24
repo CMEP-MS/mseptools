@@ -2,12 +2,12 @@
 % Please edit documentation in R/map_hydro.R
 \name{map_hydro}
 \alias{map_hydro}
-\title{Overlay USGS Hydrography on Maps}
+\title{Overlay Rivers/Streams from USGS Hydrography onto Maps}
 \usage{
 map_hydro(
   x,
   type = c("auto", "mapview", "tmap"),
-  base_groups = NULL,
+  base_groups = "default",
   overlay_name = NULL,
   ...
 )
@@ -18,27 +18,23 @@ map_hydro(
 \item{type}{Character string specifying the object type. Options are \code{"auto"}
 (default, automatically detects class), \code{"mapview"}, or \code{"tmap"}.}
 
-\item{base_groups}{Character vector of basemap names to display in the layer control menu.
-If \code{NULL} (default), base groups are automatically inferred from object properties (given priority) or global options.
-If base groups have not been specified in either object properties or global options, defaults
-for \code{"mapview"} objects are: \code{c("Esri.OceanBasemap", "Esri.WorldGrayCanvas",  "Esri.WorldTopoMap", "OpenStreetMap")};
-and for \code{"tmap"} objects are: \code{c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas", "OpenStreetMap")}.}
+\item{base_groups}{Controls which basemaps appear in the layer control menu.
+One of:
+\itemize{
+\item \code{"default"} (default) — applies built-in package default basemaps.
+\item \code{"inherit"} — preserves existing basemaps and layer controls on \code{x},
+simply overlaying the USGS Hydrography tile layer onto the map as constructed.
+\item A character vector — used verbatim as base group names in the layer control.
+}}
 
 \item{overlay_name}{Character string for the layer name in the controls. Defaults to the variable name passed to \code{x}.}
 
 \item{...}{Additional arguments passed to underlying mapping methods.}
 }
 \value{
-A \code{\link[leaflet]{leaflet}} map object containing the added USGS Hydrography layer and modified layer controls.
+A \code{\link[leaflet]{leaflet}} map object containing the added USGS Hydrography layer.
 }
 \description{
 Adds the USGS Hydrography cached tile layer and updates the layer controls on
 existing \code{mapview} or \code{tmap} interactive map objects.
-}
-\examples{
-\dontrun{
-library(mapview)
-m <- mapview(breweries)
-map_hydro(m)
-}
 }
