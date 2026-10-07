@@ -4,12 +4,12 @@
 \alias{tmap_hydro}
 \title{Add USGS Hydrography overlay to a tmap object}
 \usage{
-tmap_hydro(tm_obj, base_groups = hydro_basemaps("tmap"))
+tmap_hydro(tm_obj, base_groups = "default")
 }
 \arguments{
 \item{tm_obj}{A \code{tmap} object. \strong{Note}, do not add a \code{tm_basemap} layer if using plot mode - it will error.}
 
-\item{base_groups}{Character vector of basemaps. Defaults to \verb{\\r hydro_basemaps("tmap")}.}
+\item{base_groups}{Character vector of basemaps, for use in "view" mode. Defaults to \code{c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas", "OpenStreetMap")} via an internal function.}
 }
 \value{
 A map object: in plot mode, a regular \code{tmap} object; in view mode,
@@ -39,10 +39,15 @@ tmap_mode("plot")
 tmap_hydro(tm)
 
 # view mode specifically
-# this provides multiple base layers that can be chosen
+# this provides multiple base layers to choose from
 # and you can turn off the USGS Hydro layer if you want to
 tmap_mode("view")
 tmap_hydro(tm)
+
+or pass your own vector of basemaps
+tmap_hydro(tm,
+base_groups = c("OpenStreetMap",
+                "Esri.WorldTopoMap"))
 }
 
 }

@@ -9,7 +9,7 @@
 #' remains a tmap object. This function works with vector objects but is currently untested on rasters.
 #'
 #' @param tm_obj A `tmap` object. **Note**, do not add a `tm_basemap` layer if using plot mode - it will error.
-#' @param base_groups Character vector of basemaps. Defaults to `\r hydro_basemaps("tmap")`.
+#' @param base_groups Character vector of basemaps, for use in "view" mode. Defaults to `c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas", "OpenStreetMap")` via an internal function.
 #'
 #' @return A map object: in plot mode, a regular `tmap` object; in view mode,
 #' a `leaflet` map object.
@@ -30,16 +30,21 @@
 #' tmap_hydro(tm)
 #'
 #' # view mode specifically
-#' # this provides multiple base layers that can be chosen
+#' # this provides multiple base layers to choose from
 #' # and you can turn off the USGS Hydro layer if you want to
 #' tmap_mode("view")
 #' tmap_hydro(tm)
+#'
+#' or pass your own vector of basemaps
+#' tmap_hydro(tm,
+#' base_groups = c("OpenStreetMap",
+#'                 "Esri.WorldTopoMap"))
 #' }
 #'
 #' @export
 
 tmap_hydro <- function(tm_obj,
-                       base_groups = hydro_basemaps("tmap")) {
+                       base_groups = "default") {
 
     # Detect current tmap mode ("plot" or "view")
     current_mode <- tmap::tmap_mode()
@@ -75,6 +80,16 @@ tmap_hydro <- function(tm_obj,
 
 
     } else {
+        # we're in view mode!
+
+        # get the basemaps - use what the user defined, or use the defaults
+        if (identical(base_groups, "default")) {
+            base_groups <- hydro_basemaps("tmap")
+        }
+
+        # make sure the requested basemaps are actually on the map
+        tm_obj <- tm_obj + tmap::tm_basemap(base_groups)
+
         # Convert tmap object to leaflet and inject USGS Hydro layer
         tmap::tmap_leaflet(tm_obj) %>%
             leaflet::addTiles(

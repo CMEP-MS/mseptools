@@ -8,7 +8,7 @@
 #' `mapview::mapview()`.
 #'
 #' @param x Spatial object (e.g., `sf`, `SpatVector`).
-#' @param map.types Character vector of basemaps. Defaults to `\r hydro_basemaps("mapview")`.
+#' @param map.types Character vector of basemaps. Defaults to `c("Esri.OceanBasemap", "Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "OpenStreetMap")` via an internal function.
 #' @param layer.name Character name for data layer. Defaults to "data".
 #' @param ... Additional arguments passed to [mapview::mapview()].
 #'
@@ -30,13 +30,25 @@
 #'               color = "purple",
 #'               lwd = 2,
 #'               col.regions = "orange")
+#' # provide different basemaps
+#' mapview_hydro(MDEQ_beach_stations,
+#'               color = "purple",
+#'               col.regions = "orange",
+#'               legend = NULL,
+#'               map.types = c("Esri.WorldTopoMap",
+#'                             "OpenStreetMap"))
 #' }
 #'
 #' @export
 
-mapview_hydro <- function(x, map.types = hydro_basemaps("mapview"), layer.name = "data", ...) {
+mapview_hydro <- function(x, map.types = "default", layer.name = "data", ...) {
     # deparse1 prevents multi-line expressions from returning vectors of length > 1
     # layer_name <- deparse1(substitute(x))
+
+    # get the basemaps - use what the user defined, or use the defaults
+    if (identical(map.types, "default")) {
+        map.types <- hydro_basemaps("mapview")
+    }
 
     # Generate base mapview object
     mv <- mapview::mapview(x, map.types = map.types, layer.name = layer.name, ...)

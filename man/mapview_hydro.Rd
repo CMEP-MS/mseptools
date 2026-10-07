@@ -4,17 +4,12 @@
 \alias{mapview_hydro}
 \title{Interactive mapview plot with USGS Hydrography overlay}
 \usage{
-mapview_hydro(
-  x,
-  map.types = hydro_basemaps("mapview"),
-  layer.name = "data",
-  ...
-)
+mapview_hydro(x, map.types = "default", layer.name = "data", ...)
 }
 \arguments{
 \item{x}{Spatial object (e.g., \code{sf}, \code{SpatVector}).}
 
-\item{map.types}{Character vector of basemaps. Defaults to \verb{\\r hydro_basemaps("mapview")}.}
+\item{map.types}{Character vector of basemaps. Defaults to \code{c("Esri.OceanBasemap", "Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "OpenStreetMap")} via an internal function.}
 
 \item{layer.name}{Character name for data layer. Defaults to "data".}
 
@@ -46,6 +41,13 @@ mapview_hydro(MDEQ_beach_stations,
               color = "purple",
               lwd = 2,
               col.regions = "orange")
+# provide different basemaps
+mapview_hydro(MDEQ_beach_stations,
+              color = "purple",
+              col.regions = "orange",
+              legend = NULL,
+              map.types = c("Esri.WorldTopoMap",
+                            "OpenStreetMap"))
 }
 
 }

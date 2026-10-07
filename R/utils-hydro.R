@@ -18,6 +18,7 @@
 ##############################################################
 
 # Settings shared by mapview_hydro() and tm_hydro()
+# IF YOU UPDATE THE BASEMAPS, UPDATE THE DEFAULTS IN THE FUNCTION DOCS
 .hydro <- list(
     url = "https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer/tile/{z}/{y}/{x}",
     group = "USGS Hydrography",
