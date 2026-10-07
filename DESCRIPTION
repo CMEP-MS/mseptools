@@ -24,6 +24,7 @@ Imports:
     khroma,
     leaflet,
     lubridate,
+    maptiles,
     mapview,
     plotly,
     rlang,
