@@ -63,12 +63,18 @@ map_mssnd_usgs <- function(stations,
 
 
     m <- leaflet::leaflet(to_map) |>
-        leaflet::addProviderTiles(provider = leaflet::providers$CartoDB.Positron,
-                                  group = "Positron (CartoDB)") |>
-        leaflet::addProviderTiles(provider = leaflet::providers$Esri,
-                                  group = "Esri") |>
-        leaflet::addLayersControl(baseGroups = c("Positron (CartoDB)",
-                                                 "Esri")) |>
+        leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldGrayCanvas,
+                                  group = "Esri World Gray Canvas") |>
+        leaflet::addTiles(
+            urlTemplate = .hydro$url,
+            attribution = .hydro$attribution,
+            group       = .hydro$group
+        ) |>
+        leaflet::addLayersControl(
+            baseGroups = c("Esri World Gray Canvas"),
+            overlayGroups = c(.hydro$group),
+            options       = leaflet::layersControlOptions(collapsed = TRUE)
+        ) |>
         leaflet::addCircleMarkers(lng = ~dec_lon_va,
                                   lat = ~dec_lat_va,
                                   fillColor = ~color_function(clean_nm),

@@ -24,11 +24,16 @@
 create_mssnd_basemap <- function(lng = -89.15, lat = 30.25, zoom = 9) {
     leaflet::leaflet() %>%
         leaflet::setView(lng, lat, zoom = zoom) %>%
-        leaflet::addProviderTiles(provider = leaflet::providers$CartoDB.Positron,
-                                  group = "Positron (CartoDB)") %>%
-        leaflet::addProviderTiles(provider = leaflet::providers$Esri,
-                                  group = "Esri") %>%
+        leaflet::addProviderTiles(provider = leaflet::providers$Esri.WorldGrayCanvas,
+                                  group = "Esri World Gray Canvas") %>%
+        leaflet::addTiles(
+            urlTemplate = .hydro$url,
+            attribution = .hydro$attribution,
+            group       = .hydro$group
+        ) %>%
         leaflet::addLayersControl(
-            baseGroups = c("Positron (CartoDB)", "Esri")
+            baseGroups = c("Esri World Gray Canvas"),
+            overlayGroups = c(.hydro$group),
+            options       = leaflet::layersControlOptions(collapsed = TRUE)
         )
 }
