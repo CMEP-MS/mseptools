@@ -24,7 +24,7 @@
     group = "USGS Hydrography",
     attribution = "USGS Hydrography",
     basemaps = list(
-        mapview = c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas",
+        mapview = c("Esri.WorldGrayCanvas", "Esri.WorldTopoMap",
                     "Esri.OceanBasemap", "OpenStreetMap"),
         tmap = c("Esri.WorldTopoMap", "Esri.WorldGrayCanvas",
                  "OpenStreetMap")

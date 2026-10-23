@@ -9,7 +9,7 @@ mapview_hydro(x, map.types = "default", layer.name = "data", ...)
 \arguments{
 \item{x}{Spatial object (e.g., \code{sf}, \code{SpatVector}).}
 
-\item{map.types}{Character vector of basemaps. Defaults to \code{c("Esri.OceanBasemap", "Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "OpenStreetMap")} via an internal function.}
+\item{map.types}{Character vector of basemaps. Defaults to \code{c("Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "Esri.OceanBasemap", "OpenStreetMap")} via an internal function.}
 
 \item{layer.name}{Character name for data layer. Defaults to "data".}
 

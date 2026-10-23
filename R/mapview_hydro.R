@@ -8,7 +8,7 @@
 #' `mapview::mapview()`.
 #'
 #' @param x Spatial object (e.g., `sf`, `SpatVector`).
-#' @param map.types Character vector of basemaps. Defaults to `c("Esri.OceanBasemap", "Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "OpenStreetMap")` via an internal function.
+#' @param map.types Character vector of basemaps. Defaults to `c("Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "Esri.OceanBasemap", "OpenStreetMap")` via an internal function.
 #' @param layer.name Character name for data layer. Defaults to "data".
 #' @param ... Additional arguments passed to [mapview::mapview()].
 #'
