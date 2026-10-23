@@ -1,5 +1,19 @@
 # Changelog
 
+## mseptools 0.4.1
+
+- changed default order of layers in
+  [`mapview_hydro()`](https://cmep-ms.github.io/mseptools/reference/mapview_hydro.md).
+
+## mseptools 0.4.0
+
+- added
+  [`mapview_hydro()`](https://cmep-ms.github.io/mseptools/reference/mapview_hydro.md)
+  and
+  [`tmap_hydro()`](https://cmep-ms.github.io/mseptools/reference/tmap_hydro.md)
+  to easily incorporate the USGS Hydrography (Cached) map tiles onto
+  maps.
+
 ## mseptools 0.3.1
 
 - corrected a beach name in `MDEQ_beach_stations`: DEQStation 10B went

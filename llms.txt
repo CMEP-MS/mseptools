@@ -96,6 +96,10 @@ Functions to map stations and data in the MSEP area
   : Create interactive salinity map for Mississippi Sound data
 - [`map_mssnd_usgs()`](https://cmep-ms.github.io/mseptools/reference/map_mssnd_usgs.md)
   : Map USGS Stations in the Mississippi Sound
+- [`mapview_hydro()`](https://cmep-ms.github.io/mseptools/reference/mapview_hydro.md)
+  : Interactive mapview plot with USGS Hydrography overlay
+- [`tmap_hydro()`](https://cmep-ms.github.io/mseptools/reference/tmap_hydro.md)
+  : Add USGS Hydrography overlay to a tmap object
 
 ## Graphing
 
