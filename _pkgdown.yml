@@ -11,6 +11,7 @@ reference:
   desc: "Functions to map stations and data in the MSEP area"
   contents:
   - starts_with("map")
+  - tmap_hydro
 - title: "Graphing"
   desc: "Functions to graph data in the MSEP area"
   contents:
@@ -28,3 +29,4 @@ reference:
   - starts_with("add")
   - clean_station_names
   - retain_wqp_attributes
+  - utils-hydro
