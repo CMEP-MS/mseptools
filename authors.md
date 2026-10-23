@@ -7,7 +7,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/CMEP-MS/mseptools/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/CMEP-MS/mseptools/blob/v0.4.2/DESCRIPTION)
 
 Cressman K (2026). *mseptools: Functions for the Mississippi Sound
 Estuary Program*. R package version 0.4.2,
