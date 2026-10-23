@@ -1,5 +1,15 @@
 # Changelog
 
+## mseptools 0.4.2
+
+- updated
+  [`create_mssnd_basemap()`](https://cmep-ms.github.io/mseptools/reference/create_mssnd_basemap.md)
+  and
+  [`map_mssnd_usgs()`](https://cmep-ms.github.io/mseptools/reference/map_mssnd_usgs.md)
+  to remove CartoDB.Positron due to the API key necessity. All map
+  functions should now default to Esri World Gray Canvas with an overlay
+  of USGS Hydrography.
+
 ## mseptools 0.4.1
 
 - changed default order of layers in

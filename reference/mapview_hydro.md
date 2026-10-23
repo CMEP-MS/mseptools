@@ -22,7 +22,7 @@ mapview_hydro(x, map.types = "default", layer.name = "data", ...)
 - map.types:
 
   Character vector of basemaps. Defaults to
-  `c("Esri.OceanBasemap", "Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "OpenStreetMap")`
+  `c("Esri.WorldGrayCanvas", "Esri.WorldTopoMap", "Esri.OceanBasemap", "OpenStreetMap")`
   via an internal function.
 
 - layer.name:
