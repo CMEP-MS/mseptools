@@ -1,3 +1,7 @@
+# mseptools 0.4.1  
+
+* changed default order of layers in `mapview_hydro()`.  
+
 # mseptools 0.4.0
 
 * added `mapview_hydro()` and `tmap_hydro()` to easily incorporate the USGS Hydrography (Cached) map tiles onto maps.
